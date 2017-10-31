@@ -12,4 +12,6 @@ class Point(x: Int, y:Int){
   override def toString(): String = "(" + x + ", " + y + ")"
 }
 
+var pt = new Point(1,2)
+
 ```

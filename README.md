@@ -20,8 +20,18 @@ paradigms. It was designed with this in mind and it includes features like
 * partial applications
 * type classes
 
+## Running scala programms
+```
+echo "println(30)" > test.scala
+scala test.scala
+30
+```
 
-
+## Importing packages
+Example:
+```java
+import scala.math._ // In scala the _ is a wildcard, like * in java
+```
 
 - - -
 
@@ -101,5 +111,73 @@ type of the variables. This is due to a language feature called type inference.
 In most cases, the compiler can guess what's the type of the variable, so you
 don't have to do it every time. (Probably is b/c of this that scala is slow
   at compile time.)
+
+We can help the compiler and explicitly declare the type of a variable:
+```scala
+val z: Int = 10
+val a: Double = 1.0
+```
+
+### Strings
+```scala
+"Scala strings are sorrounded by double quotes"
+'a' // This is a char
+'This string will cause an error'
+```
+
+
+Scala strings have the ususal java methods:
+```scala
+"Test".lenght
+"Hello hell".substring(1,3)
+"TACO".replace("C", "3")
+```
+
+Scala added some extra methods. (See scala.collection.immutable.StringOps)
+```scala
+"Hello hell".take(5)
+"Hello hell".drop(5)
+```
+
+String interpolation:
+
+Just add the `s` at the begining of the string.
+```scala
+val n = 6
+s"The n in this string will be replaced if prepend a $. Like this $n"
+```
+We can do more elaborated stuff like the next examples:
+```scala
+val a = Array(11, 9, 6)
+s"My second daughter is ${a(0) - a(2)} years old."    // => "My second daughter is 5 years old."
+s"Power of 2: ${math.pow(2, 2)}"                      // => "Power of 2: 4"
+```
+
+And also formating strings, by prependign the `f`:
+```scala
+// Formatting with interpolated strings with the prefix "f"
+f"Power of 5: ${math.pow(5, 2)}%1.0f"         // "Power of 5: 25"
+```
+
+If we just want a simple string, we can use simple `raw` strings:
+```scala
+// Raw strings, ignoring special characters.
+raw"New line feed: \n. Carriage return: \r." // => "New line feed: \n. Carriage return: \r."
+```
+
+Like in python, triple double quotes, let strings span multiple rows and contain
+quotes.
+
+val html = """<form id="daform">
+                <p>Press belo', Joe</p>
+                <input type="submit">
+              </form>"""
+
+
+
+
+
+### Functions
+
 
 ## [Scala exercises:](https://www.scala-exercises.org/)
